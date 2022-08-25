@@ -6,15 +6,14 @@ import json
 import dateutil.parser
 import babel
 from flask import Flask, render_template, request, Response, flash, redirect, url_for, abort, jsonify
-from flask_moment import Moment
-from flask_sqlalchemy import SQLAlchemy
+
 import logging
 from logging import Formatter, FileHandler
 from flask_wtf import FlaskForm  #(not used here but in forms.py)
 from forms import *
-from flask_migrate import Migrate
+
 from models import *
-from datetime import datetime
+
 import re
 from operator import itemgetter # for sorting lists of tuples
 
@@ -23,12 +22,12 @@ from operator import itemgetter # for sorting lists of tuples
 #----------------------------------------------------------------------------#
 
 app = Flask(__name__)
-moment = Moment(app)
+
 app.config.from_object('config')
-db = SQLAlchemy(app)
+
 
 # connect to a local postgresql database
-migrate = Migrate(app, db)
+
 
 #----------------------------------------------------------------------------#
 # Models.
